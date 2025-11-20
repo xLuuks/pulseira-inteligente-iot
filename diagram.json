@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "Lucas Augusto",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -62.36, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 243.82, "left": -45.68, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -16.8,
+      "left": 97.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "imu1:VCC", "esp:3V3", "red", [ "h19.28", "v67.2", "h-124.8", "v-288" ] ],
+    [ "imu1:GND", "esp:GND.1", "black", [ "v-9.6", "h-86.32", "v-86.4" ] ],
+    [ "imu1:SDA", "esp:21", "orange", [ "v-19.2", "h57.68", "v-153.6" ] ],
+    [ "imu1:SCL", "esp:22", "blue", [ "v-28.8", "h57.68", "v-172.8" ] ],
+    [ "bz1:1", "esp:19", "magenta", [ "v0" ] ],
+    [ "bz1:2", "esp:GND.2", "green", [ "v19.2", "h-48.4", "v-57.6" ] ]
+  ],
+  "dependencies": {}
+}
