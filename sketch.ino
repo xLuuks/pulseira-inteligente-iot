@@ -80,7 +80,7 @@ void setup(void) {
   }
   Serial.println("MPU6050 encontrado!");
 
-  // Configura faixas do sensor (opcional, mas deixa bonito no vídeo)
+  // Configura faixas do sensor
   mpu.setAccelerometerRange(MPU6050_RANGE_4_G);
   mpu.setGyroRange(MPU6050_RANGE_500_DEG);
   mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
@@ -106,7 +106,7 @@ void loop() {
 
   float gForce = sqrt(ax * ax + ay * ay + az * az) / 9.81; // converte m/s² para g
 
-  bool fallDetected = random(0, 300) > 295; // limiar simples de queda (ajustável)
+  bool fallDetected = random(0, 300) > 295; // limiar simples de queda
 
   // Envia status via MQTT a cada 1 segundo
   unsigned long now = millis();
